@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Itens em linhas de 5</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <body>
+    <div class="container" id="conteudo-pagina">
+      <div class="item {{color}}">
+        <h3>{{color}}</h3>
+        <p>{{match}} -- {{porcentagem}}%</p>
+      </div>
+    </div>
+  </body>
+</html>
