@@ -1,9 +1,9 @@
 from datetime import datetime
 
-''
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
 
+from utils.find15 import percorrer
 from utils.request_api import return_sequence
 
 
@@ -20,14 +20,17 @@ class IA:
             model_fit = model.fit()
             
             # Fazer a previsão do próximo número
-            next_number = model_fit.predict(len(data), len(data))
-            next_number = float(str(next_number).split(" ")[4][0:4])
-            if next_number == 0 :
-                return "white"
-            elif next_number < 8:
-                return "red"
-            else:
-                return "black"
+            try:
+                next_number = model_fit.predict(len(data), len(data))
+                next_number = float(str(next_number).split(" ")[4][0:4])
+                if next_number == 0 :
+                    return "white"
+                elif next_number < 8:
+                    return "red"
+                else:
+                    return "black"
+            except:
+                pass
         
     def next_number(self, giros):
         next_number = self.predict_next_number(giros)
@@ -41,7 +44,7 @@ ia = IA()
 class ReturnPrevResult:
     from bot.models import Historico, Sequencia
     def __init__(self) -> None:
-        self.porcentagem = 81
+        self.porcentagem = 0
         self.blaze = 19
         self.resultado = []
 
@@ -58,8 +61,6 @@ class ReturnPrevResult:
         if sinais:
             self.resultado.append(sinais.result)
             print('sequence', sinais.result)
-        else:
-            self.porcentagem -= 27
         return
 
         
@@ -79,8 +80,6 @@ class ReturnPrevResult:
             maior_valor = max(media, key=lambda x: media[x])
             self.resultado.append(maior_valor)
             print('minute', maior_valor)
-        else:
-            self.porcentagem -= 27
         return
         
     def return_prev_number(self, last20_results):
@@ -89,15 +88,25 @@ class ReturnPrevResult:
         print('nextnumber', next_number)
         return
 
+    def verifica_branco_com_calculo(self, last_results):
+        if percorrer(last_results[15:]):
+            self.resultado.append('white')
+            print("Chance de branco")
+        return
+
 
     def get_result(self):
         last_sequence, last_20_results = return_sequence()
         prev_sequence = self.return_prev_sequence(last_sequence)
         prev_number = self.return_prev_number(last_20_results)
         prev_minute = self.return_prev_minute()
-
+        # prev_branco_calc = self.verifica_branco_com_calculo(last_20_results[::-1])
+        
         item = max(set(self.resultado), key = self.resultado.count)
-        quantidade = self.resultado.count(item)
-
+        print(self.resultado)
+        quantidade = [i for i in range(1, self.resultado.count(item) + 1)]
+        self.porcentagem = 27 * len(quantidade)
+        # quantidade = self.resultado.count(item)
+        
 
         return [item, quantidade, self.porcentagem]

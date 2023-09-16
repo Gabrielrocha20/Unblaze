@@ -22,4 +22,9 @@ class Sequencia(models.Model):
 
     def __str__(self):
         return self.p1
-    
+
+
+class Configuracao(models.Model):
+        api_telegram = models.CharField(max_length=2000)
+        id_sala_telegram = models.CharField(max_length=200)
+        

@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans','Roboto' ,sans-serif;
+}
+
+body{
+    height: 100%;
+    background-color: #1a1b27;
+}
+/* red: #F12C4C */
+
+.Aviso{
+    color: white;
+    font-size: 15px;
+    transition: transform .2s;
+}
+.Aviso:hover{
+    color: green;
+    transform: scale(1.5);
+}
+
+.container{
+    width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.CheckBox{
+    color: white;
+    font-size: 15px;
+    margin: 10px;
+}
+
+.results{
+    position: relative;
+    height: 200px;
+    border: 3px solid #ff1e38d2;
+    border-radius: 10px;
+    box-shadow: 0px 2px 13px #ff1e38;
+}
+
+
+.wrapperBox{
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+
+.colorBox{
+    width: 60px;
+    position: relative;
+    /*
+    animation: PulaPula 0.5s ease infinite;
+    */
+    transition: 2s ease-in;
+    transform: rotate(45deg);
+}
+
+.cb1{
+    animation: GiraGira 1.5s infinite;
+    animation-delay: 0s;
+}
+.cb2{
+    animation: GiraGira 1.5s infinite;
+    animation-delay: 0.3s;
+}
+.cb3{
+    animation: GiraGira 1.5s infinite;
+    animation-delay: 0.9s;
+}
+
+.cb3{
+    animation: GiraGira 1.5s infinite;
+    animation-delay: 1.2s;
+}
+
+@keyframes GiraGira{
+    0%{
+        top: 0px;
+        width: 60px;
+        transform: rotate(45deg);
+    }
+    50%{
+        top: -20px;
+        width: 72px;
+    }
+    100%{
+        top: 0px;
+        width: 60px;
+        transform: rotate(405deg);
+    }
+}
+
+.porcentage{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+
+    color: #ff1732;
+    font-size: 0.8em;
+    transform: translateX(-50%);
+    text-shadow: 0px 0px 2px #ff1732;
+}
+
+progress{
+    width: 95%;
+    height: 18px;
+    
+    left: 50%;
+    bottom: 15px;
+    position: absolute;
+    
+    border-radius: 2px;
+    border: 2px solid #ff1e38;
+    transform: translateX(-50%);
+}
+
+progress[value]::-webkit-progress-value {
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(224, 25, 59), #f44);
+  
+    border-radius: 0px !important; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+.signalButton{
+    margin-top: 60px;
+}
+
+.signalButton button{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.747);
+    font-size: 0.9em;
+    width: 200px;
+    height: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 2px solid #ff3048;
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(224, 25, 59), #f44);
+    /*
+    */
+    animation: zoomLoop 1s infinite ease-out;
+}
+
+.signalButton button:hover{
+    border: 2px solid #eb263d;
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(216, 16, 49), rgb(250, 49, 49));
+}
+
+.gale{
+    margin-top: 60px;
+}
+
+.gale button{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.747);
+    font-size: 0.9em;
+    width: 200px;
+    height: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 2px solid rgb(255, 255, 164)8;
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(238, 238, 6), rgb(85, 78, 7));
+    /*
+    */
+    animation: zoomLoop 1s infinite ease-out;
+}
+
+.gale button:hover{
+    border: 2px solid #756e05;
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(154, 131, 6), rgb(144, 151, 9));
+}
+
+.win{
+    margin-top: 60px;
+}
+
+.win button{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.747);
+    font-size: 0.9em;
+    width: 200px;
+    height: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 2px solid #5ff41f;
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(48, 177, 22), rgb(157, 237, 128));
+    /*
+    */
+    animation: zoomLoop 1s infinite ease-out;
+}
+
+.win button:hover{
+    border: 2px solid #257906;
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(42, 154, 36), rgb(35, 160, 21));
+}
+.winBranco{
+    margin-top: 60px;
+}
+
+.winBranco button{
+    cursor: pointer;
+    color: rgba(36, 35, 35, 0.747);
+    font-size: 0.9em;
+    width: 200px;
+    height: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 2px solid #ffffff;
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(243, 255, 241)rgb(151, 244, 135));
+    /*
+    */
+    animation: zoomLoop 1s infinite ease-out;
+}
+
+.winBranco button:hover{
+    border: 2px solid #b1b4b1;
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(108, 109, 108)rgb(53, 97, 53));
+}
+
+.sendMessages{
+    display: flex;
+    justify-content: center;
+}
+
+.sendMessages form {
+    margin: 5px;
+}
+
+
+@keyframes zoomLoop{
+    0%{
+        width: 200px;
+    }
+    50%{
+        width: 215px;
+    }
+    100%{
+        width: 200px;
+    }
+}

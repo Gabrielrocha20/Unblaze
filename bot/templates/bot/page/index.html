@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>Itens em linhas de 5</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/historico.css' %}">
   <body>
     <div class="container" id="conteudo-pagina">
       {% for giro in giros %}
@@ -24,7 +24,7 @@
               document.getElementById("conteudo-pagina").innerHTML = this.responseText;
           }
       };
-      xmlhttp.open("GET", "/historico", true);
+      xmlhttp.open("GET", "/", true);
       xmlhttp.send();
     }
 

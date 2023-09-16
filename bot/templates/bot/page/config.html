@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"      type="text/css" href="{% static 'css/config.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form action="{% url 'bot:config' %}" method="POST" name="form">{% csrf_token %}
+            <label for="text" >Chave da api Telegram:</label>
+            <input type="text" name="api_telegram" value='{{config.api_telegram}}'>
+            <label for="text">ID do Chat:</label>
+            <input type="text" name="id_chat_telegram" value='{{config.id_sala_telegram}}'>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+    
+</body>
+</html>

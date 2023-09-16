@@ -5,6 +5,7 @@ from time import sleep
 import requests
 
 lock = Lock()
+URL_LINK_BLAZE = 'https://blaze-1.com/api/roulette_games/recent'
 
 def daterework(date):
     hour = date.split('T')[1][:5]
@@ -32,7 +33,6 @@ def start_last_colors():
     from bot.models import Historico, Sequencia
     listaNumeros = [0, 11, 5, 10, 6, 9, 7, 8, 1, 14, 2, 13, 3, 12, 4]
     try:
-        URL_LINK_BLAZE = 'https://blaze.com/api/roulette_games/recent'
         last_result = None
         last_sequence = None
 
@@ -103,7 +103,6 @@ def start_last_colors():
         pass
 
 def return_sequence():
-    URL_LINK_BLAZE = 'https://blaze.com/api/roulette_games/recent'
 
     information = requests.get(URL_LINK_BLAZE)
 
@@ -130,7 +129,4 @@ def start_thread():
     thread = Thread(target=start_last_colors)
     thread.daemon = True
     thread.start()
-
-
-            
 

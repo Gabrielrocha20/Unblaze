@@ -1,15 +1,69 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Itens em linhas de 5</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <body>
-    <div class="container" id="conteudo-pagina">
-      <div class="item {{color}}">
-        <h3>{{color}}</h3>
-        <p>{{match}} -- {{porcentagem}}%</p>
-      </div>
-    </div>
-  </body>
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title>UnBlaze Bot</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet"      type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"      type="text/css" href="{% static 'css/normalize.css' %}">
+        <meta name="viewport"       content="width=device-width, initial-scale=1.0">
+        <meta name="author"         content="autor do site">
+        <meta name="keywords"       content="palavras-separadas,por,virgula">
+        <meta name="description"    content="descrição do site">
+        <link rel="icon" href="{% static 'image/blaze-icon.svg' %}">
+    </head>
+    <body>
+        <div class="container" id="container">
+            <div class="logo">
+              <p class="Aviso">Se atente com A quantidade de apostas em cada cor</p>
+            </div><!--logo-->
+
+            <div class="results">
+                <div class="wrapperBox">
+                    {% for match in matchs %}
+                        <img class="colorBox cb{{match}}" src="{% static color %}" alt="">
+                    {% endfor %}
+                    <img class="colorBox cb3" src="{% static 'image/cboxWhite.png' %}" alt="">
+                    
+                </div>
+                
+                <div class="odds_bar">
+                    <span class="porcentage">{{porcentagem}}%</span>
+                    <progress max="100" value="{{porcentagem}}"> {{porcentagem}}% </progress>
+                </div>
+            </div><!--results-->
+
+            <form action="{% url 'bot:sinais' %}" method="GET">
+                <div class="signalButton">
+                  <button>Enviar Sinal</button>
+                  <div class="CheckBox">
+                    <label for="checkbox">Deseja Enviar Mensagem Para o Telegram</label>
+                    <input type="checkbox" name="SendTelegram" id="SendTelegram" {% if sendTelegram %}checked {%endif%}>
+                  </div>
+                </div>
+            </form>
+            <div class="sendMessages">
+              <form action="{% url 'bot:check_resultado' gale %}" method="GET">
+                <div class="gale">
+                  <button>Gale</button>
+                </div>
+              </form>
+              <form action="{% url 'bot:check_resultado' win %}" method="GET">
+                <div class="win">
+                  <button>Win</button>
+                </div>
+              </form>
+              <form action="{% url 'bot:check_resultado' white %}" method="GET">
+                <div class="winBranco">
+                  <button>Win Branco</button>
+                </div>
+              </form>
+              <form action="{% url 'bot:check_resultado' loss %}" method="GET">
+                <div class="signalButton">
+                  <button>Loss</button>
+                </div>
+              </form>
+            </div>
+        </div><!--container-->
+    </body>
 </html>
