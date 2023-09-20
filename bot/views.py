@@ -19,7 +19,7 @@ class Sinais(View):
 
         prev_result = ReturnPrevResult()
         prev_result = prev_result.get_result()
-        if not prev_result:
+        if prev_result == None:
             return HttpResponse('Nada')
         if sendTelegram:
             config = Configuracao.objects.all().first()

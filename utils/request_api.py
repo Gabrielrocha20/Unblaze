@@ -123,6 +123,7 @@ def return_sequence():
             last_20_results.append(int(results_colors[index]['roll']))
 
         return [last_sequence, last_20_results]
+    return [information.status_code, None]
 
 
 def start_thread():

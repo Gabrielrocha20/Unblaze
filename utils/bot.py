@@ -97,6 +97,8 @@ class ReturnPrevResult:
 
     def get_result(self):
         last_sequence, last_20_results = return_sequence()
+        if last_20_results == None:
+            return None
         prev_sequence = self.return_prev_sequence(last_sequence)
         prev_number = self.return_prev_number(last_20_results)
         prev_minute = self.return_prev_minute()
