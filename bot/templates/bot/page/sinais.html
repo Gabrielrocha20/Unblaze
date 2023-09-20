@@ -15,16 +15,15 @@
     <body>
         <div class="container" id="container">
             <div class="logo">
-              <p class="Aviso">Se atente com A quantidade de apostas em cada cor</p>
+                <img src="{% static 'image/unblaze.png' %}" alt="unblaze_logo">
             </div><!--logo-->
 
-            <div class="results">
+            <div class="results" id="results">
                 <div class="wrapperBox">
                     {% for match in matchs %}
                         <img class="colorBox cb{{match}}" src="{% static color %}" alt="">
                     {% endfor %}
                     <img class="colorBox cb3" src="{% static 'image/cboxWhite.png' %}" alt="">
-                    
                 </div>
                 
                 <div class="odds_bar">
@@ -34,36 +33,36 @@
             </div><!--results-->
 
             <form action="{% url 'bot:sinais' %}" method="GET">
-                <div class="signalButton">
-                  <button>Enviar Sinal</button>
-                  <div class="CheckBox">
-                    <label for="checkbox">Deseja Enviar Mensagem Para o Telegram</label>
-                    <input type="checkbox" name="SendTelegram" id="SendTelegram" {% if sendTelegram %}checked {%endif%}>
-                  </div>
+                <div class="signalWrapper">
+                    <button class="btn signalButton" onclick="abc(23, 50)">Receber Sinal</button>
+                </div>
+                <div class="sendTelegWrapper">
+                    <label for="SendTelegram">* Enviar Sinal para o Telegram</label>
+                    <input name="SendTelegram" id="SendTelegram" type="checkbox">
                 </div>
             </form>
-            <div class="sendMessages">
-              <form action="{% url 'bot:check_resultado' gale %}" method="GET">
-                <div class="gale">
-                  <button>Gale</button>
-                </div>
-              </form>
-              <form action="{% url 'bot:check_resultado' win %}" method="GET">
-                <div class="win">
-                  <button>Win</button>
-                </div>
-              </form>
-              <form action="{% url 'bot:check_resultado' white %}" method="GET">
-                <div class="winBranco">
-                  <button>Win Branco</button>
-                </div>
-              </form>
-              <form action="{% url 'bot:check_resultado' loss %}" method="GET">
-                <div class="signalButton">
-                  <button>Loss</button>
-                </div>
-              </form>
+            
+            <div class="telegramWrapper">
+                <form action="{% url 'bot:check_resultado' gale %}" method="GET">
+                    <button class="btn telegButton telegGale">Gale</button>
+                </form>
+                <form action="{% url 'bot:check_resultado' win %}" method="GET">
+                    <button class="btn telegButton telegWin">Win</button>
+                </form>
+                <form action="{% url 'bot:check_resultado' white %}" method="GET">
+                    <button class="btn telegButton telegWinWhite">Win Branco</button>
+                </form>
+                <form action="{% url 'bot:check_resultado' loss %}" method="GET">
+                    <button class="btn telegButton telegLoss">Loss</button>
+                </form>
             </div>
         </div><!--container-->
     </body>
+    <script>
+        function abc(a, b){
+            let resultado = a + b
+            
+            console.log(resultado)
+        }
+    </script>
 </html>

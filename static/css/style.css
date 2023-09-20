@@ -4,52 +4,52 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans','Roboto' ,sans-serif;
+    outline: none;
 }
 
 body{
+    overflow-x: hidden;
     height: 100%;
     background-color: #1a1b27;
-}
-/* red: #F12C4C */
+    background-image: url('../image/back.png');
+    background-position: 1200px -1950px;
 
-.Aviso{
-    color: white;
-    font-size: 15px;
-    transition: transform .2s;
-}
-.Aviso:hover{
-    color: green;
-    transform: scale(1.5);
 }
 
 .container{
-    width: 1080px;
+    width: 100%;
+    max-width: 1080px;
     margin: 0 auto;
     text-align: center;
 }
 
 .logo{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
-.CheckBox{
-    color: white;
-    font-size: 15px;
-    margin: 10px;
+.logo img{
+    width: 70%;
+    max-width: 480px;
 }
 
 .results{
     position: relative;
+    margin: 0 auto;
+
+    width: 90%;
     height: 200px;
+    
     border: 3px solid #ff1e38d2;
     border-radius: 10px;
     box-shadow: 0px 2px 13px #ff1e38;
+    background-color: #1a1b276e;
 }
 
 
 .wrapperBox{
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
@@ -62,7 +62,6 @@ body{
     /*
     animation: PulaPula 0.5s ease infinite;
     */
-    transition: 2s ease-in;
     transform: rotate(45deg);
 }
 
@@ -76,12 +75,7 @@ body{
 }
 .cb3{
     animation: GiraGira 1.5s infinite;
-    animation-delay: 0.9s;
-}
-
-.cb3{
-    animation: GiraGira 1.5s infinite;
-    animation-delay: 1.2s;
+    animation-delay: 0.7s;
 }
 
 @keyframes GiraGira{
@@ -127,156 +121,331 @@ progress{
 
 progress[value]::-webkit-progress-value {
     background-image:
-         -webkit-linear-gradient(-45deg, 
-                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                                 rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(224, 25, 59), #f44);
-  
-    border-radius: 0px !important; 
+    -webkit-linear-gradient(-45deg, 
+    transparent 33%, rgba(0, 0, 0, .1) 33%, 
+    rgba(0,0, 0, .1) 66%, transparent 66%),
+    -webkit-linear-gradient(left, rgb(224, 25, 59), #f44);
+    border-radius: 0px; 
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /*
     background-size: 35px 20px, 100% 100%, 100% 100%;
+    */
+    background-size: 30px 40px, 100% 100%, 100% 100%;
+    animation: zoomLoop 2s infinite;
+}
+
+.sendTelegWrapper{
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.47);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    user-select: none;
+}
+
+.sendTelegWrapper input[type=checkbox]{
+    width: 19px;
+    height: 19px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    -webkit-appearance: none;
+    border-radius: 10px;
+    border: none;
+    background-image: url('../image/telegram-red.png');
+    background-color: #c17b7b;
+    background-size: 14px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.sendTelegWrapper input:checked{
+    border: none;
+    background-image: url('../image/telegram.png');
+    background-size: contain;
+}
+
+.signalWrapper{
+    margin-top: 40px;
 }
 
 .signalButton{
-    margin-top: 60px;
+    width: 210px;
+    height: 43px;
 }
 
-.signalButton button{
+.telegramWrapper{
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%);
+}
+
+.telegButton{
+    width: 140px;
+    height: 36px;
+}
+.telegButton.telegGale{
+    border: 2px solid yellow;
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, #d89910, rgb(191, 205, 29));
+}
+.telegButton.telegGale:hover{
+    border: 2px solid rgb(221, 151, 12);
+    box-shadow: 0px 0px 15px #f79e04;
+    background-image:
+    -webkit-linear-gradient(-45deg, 
+                            transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                            rgba(0,0, 0, .1) 66%, transparent 66%),
+    -webkit-linear-gradient(left, rgb(199, 151, 5), rgb(179, 142, 9));
+}
+.telegButton.telegWin{
+    border: 2px solid rgb(25, 145, 25);
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, #2d6618, rgb(37, 198, 5));
+}
+.telegButton.telegWin:hover{
+    border: 2px solid rgb(12, 221, 71);
+    box-shadow: 0px 0px 15px #04f710;
+    background-image:
+    -webkit-linear-gradient(-45deg, 
+                            transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                            rgba(0,0, 0, .1) 66%, transparent 66%),
+    -webkit-linear-gradient(left, rgb(8, 199, 5), rgb(12, 179, 9));
+}
+.telegButton.telegWinWhite{
+    border: 2px solid rgb(134, 134, 134);
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(top right, #c2c2c2, rgb(190, 190, 190));
+}
+.telegButton.telegWinWhite:hover{
+    color: #acacac;
+    border: 2px solid rgb(172, 172, 172);
+    box-shadow: 0px 0px 15px #696969;
+    background-image:
+    -webkit-linear-gradient(-45deg, 
+                            transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                            rgba(0,0, 0, .1) 66%, transparent 66%),
+    -webkit-linear-gradient(left, rgb(255, 255, 255), rgb(232, 232, 232));
+}
+.telegButton.telegLoss{
     cursor: pointer;
     color: rgba(255, 255, 255, 0.747);
     font-size: 0.9em;
-    width: 200px;
-    height: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 2px solid #ca1127;
+    background-image:
+         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, #bd0c29, rgb(199, 44, 44));
+    background-size: 20px 65px, 100% 100%, 100% 100%;
+}
+
+.telegButton.telegLoss:hover{
+    box-shadow: 0px 3px 20px #ff0000;
+    transition: 1s;
+    animation: zoomLoop 0.4s ease-in;
+    border: 2px solid #eb263d;
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(left, rgb(170, 8, 35), rgb(188, 0, 0));
+}
+
+
+
+
+.btn{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.747);
+    font-size: 0.9em;
     font-weight: 700;
     letter-spacing: 1px;
     border: 2px solid #ff3048;
     background-image:
          -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
             rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(224, 25, 59), #f44);
-    /*
-    */
-    animation: zoomLoop 1s infinite ease-out;
+         -webkit-linear-gradient(left, #d81031, #f44);
+    background-size: 20px 65px, 100% 100%, 100% 100%;
 }
 
-.signalButton button:hover{
+.btn:hover{
+    box-shadow: 0px 3px 15px #e0092d;
+    -webkit-transition: all 0.32s cubic-bezier(0.58, -0.25, 0.265, 2); /* Safari and Chrome */
+    -moz-transition: all 0.32s cubic-bezier(0.58, -0.25, 0.265, 2); /* Firefox 4 */
+    -o-transition: all 0.32s cubic-bezier(0.58, -0.25, 0.265, 2); /* Opera */
+    transition: all 0.32s cubic-bezier(0.58, -0.25, 0.265, 2); /* Default */
+    animation: zoomLoop 0.4s ease-in;
     border: 2px solid #eb263d;
     background-image:
          -webkit-linear-gradient(-45deg, 
                                  transparent 33%, rgba(0, 0, 0, .1) 33%, 
                                  rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(216, 16, 49), rgb(250, 49, 49));
+         -webkit-linear-gradient(left, rgb(216, 16, 49), rgb(214, 36, 36));
 }
-
-.gale{
-    margin-top: 60px;
-}
-
-.gale button{
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.747);
-    font-size: 0.9em;
-    width: 200px;
-    height: 40px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border: 2px solid rgb(255, 255, 164)8;
-    background-image:
-         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
-            rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(238, 238, 6), rgb(85, 78, 7));
-    /*
-    */
-    animation: zoomLoop 1s infinite ease-out;
-}
-
-.gale button:hover{
-    border: 2px solid #756e05;
-    background-image:
-         -webkit-linear-gradient(-45deg, 
-                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                                 rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(154, 131, 6), rgb(144, 151, 9));
-}
-
-.win{
-    margin-top: 60px;
-}
-
-.win button{
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.747);
-    font-size: 0.9em;
-    width: 200px;
-    height: 40px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border: 2px solid #5ff41f;
-    background-image:
-         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
-            rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(48, 177, 22), rgb(157, 237, 128));
-    /*
-    */
-    animation: zoomLoop 1s infinite ease-out;
-}
-
-.win button:hover{
-    border: 2px solid #257906;
-    background-image:
-         -webkit-linear-gradient(-45deg, 
-                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                                 rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(42, 154, 36), rgb(35, 160, 21));
-}
-.winBranco{
-    margin-top: 60px;
-}
-
-.winBranco button{
-    cursor: pointer;
-    color: rgba(36, 35, 35, 0.747);
-    font-size: 0.9em;
-    width: 200px;
-    height: 40px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border: 2px solid #ffffff;
-    background-image:
-         -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, 
-            rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(243, 255, 241)rgb(151, 244, 135));
-    /*
-    */
-    animation: zoomLoop 1s infinite ease-out;
-}
-
-.winBranco button:hover{
-    border: 2px solid #b1b4b1;
-    background-image:
-         -webkit-linear-gradient(-45deg, 
-                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                                 rgba(0,0, 0, .1) 66%, transparent 66%),
-         -webkit-linear-gradient(left, rgb(108, 109, 108)rgb(53, 97, 53));
-}
-
-.sendMessages{
-    display: flex;
-    justify-content: center;
-}
-
-.sendMessages form {
-    margin: 5px;
-}
-
 
 @keyframes zoomLoop{
     0%{
-        width: 200px;
-    }
-    50%{
-        width: 215px;
+        background-position-y: 0px;
     }
     100%{
-        width: 200px;
+        background-position-y: 90px;
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 700px){
+    .results{
+        width: 88%;
+    }
+}
+
+@media screen and (max-width: 420px){
+
+    .signalButton{
+        position: absolute;
+        left: 50%;
+        bottom: 120px;
+        transform: translateX(-50%);
+    }
+
+    .wrapperBox{
+        margin-top: 60px;
+    }
+
+    .porcentage{
+        bottom: 30px;
+    }
+
+    .results{
+        width: 80%;
+        border: none;
+        box-shadow: none;
+
+        height: calc(100vh - 600px);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    progress{
+        height: 25px;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    @keyframes GiraGira{
+        0%{
+            top: 0px;
+            width: 60px;
+            transform: rotate(45deg);
+        }
+        50%{
+            top: -10px;
+            width: 70px;
+        }
+        100%{
+            top: 0px;
+            width: 60px;
+            transform: rotate(405deg);
+        }
+    }
+
+    
+    .cb1{
+        display: none;
+    }
+    .cb2{
+        animation: GiraGira 1.5s infinite;
+        animation-delay: 0.3s;
+    }
+    .cb3{
+        display: none;
+    }
+}
+
+/* Existing CSS styles remain the same */
+
+@media screen and (max-width: 420px) {
+    .results {
+        width: 80%;
+        border: none;
+        box-shadow: none;
+        height: auto;
+        position: relative;
+        left: initial;
+        transform: none;
+    }
+
+    .btn{
+        width: 80px;
+    }
+    .signalButton {
+        position: relative;
+        left: initial;
+        bottom: initial;
+        transform: none;
+        margin-top: 10px; /* Adjust as needed */
+    }
+
+    .wrapperBox {
+        margin-top: 20px;
+    }
+
+    .porcentage {
+        bottom: 10px;
+    }
+
+    progress {
+        height: 18px;
+        position: relative;
+        bottom: initial;
+    }
+
+    @keyframes GiraGira {
+        0% {
+            top: 0px;
+            width: 60px;
+            transform: rotate(45deg);
+        }
+        50% {
+            top: -10px;
+            width: 70px;
+        }
+        100% {
+            top: 0px;
+            width: 60px;
+            transform: rotate(405deg);
+        }
+    }
+
+    .cb1,
+    .cb3 {
+        display: none;
+    }
+
+    .cb2 {
+        animation: GiraGira 1.5s infinite;
+        animation-delay: 0.3s;
     }
 }

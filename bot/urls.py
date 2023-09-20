@@ -20,8 +20,8 @@ from . import views
 app_name = 'bot'
 
 urlpatterns = [
+    path('', views.Sinais.as_view(), name='sinais'),
     path('historico', views.HistoricoView.as_view(), name='historico'),
-    path('sinais', views.Sinais.as_view(), name='sinais'),
     path('sinais/<str:res>/', views.CheckResultado.as_view(), name='check_resultado'),
     path('config', views.Config.as_view(), name='config'),
 ]
