@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet"      type="text/css" href="{% static 'css/style.css' %}">
         <link rel="stylesheet"      type="text/css" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet"      type="text/css" href="{% static 'css/nav.css' %}">
         <meta name="viewport"       content="width=device-width, initial-scale=1.0">
         <meta name="author"         content="autor do site">
         <meta name="keywords"       content="palavras-separadas,por,virgula">
@@ -13,6 +14,7 @@
         <link rel="icon" href="{% static 'image/blaze-icon.svg' %}">
     </head>
     <body>
+        {% include "bot/page/navbar.html" %}
         <div class="container" id="container">
             <div class="logo">
                 <img src="{% static 'image/unblaze.png' %}" alt="unblaze_logo">

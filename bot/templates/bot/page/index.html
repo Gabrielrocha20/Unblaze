@@ -4,7 +4,9 @@
   <head>
     <title>Itens em linhas de 5</title>
     <link rel="stylesheet" href="{% static 'css/historico.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
   <body>
+    {% include "bot/page/navbar.html" %}
     <div class="container" id="conteudo-pagina">
       {% for giro in giros %}
         <div class="item {{giro.color}}">
@@ -24,7 +26,7 @@
               document.getElementById("conteudo-pagina").innerHTML = this.responseText;
           }
       };
-      xmlhttp.open("GET", "/", true);
+      xmlhttp.open("GET", "/historico", true);
       xmlhttp.send();
     }
 

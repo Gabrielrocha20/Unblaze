@@ -12,15 +12,16 @@
     {% include "bot/page/navbar.html" %}
     <div class="container-login">
         <div class="container">
-            <form action="{% url 'bot:config' %}" method="POST" name="form">{% csrf_token %}
-                <label for="text" >Chave da api Telegram:</label>
-                <input type="text" name="api_telegram" value='{{config.api_telegram}}'>
-                <label for="text">ID do Chat:</label>
-                <input type="text" name="id_chat_telegram" value='{{config.id_sala_telegram}}'>
-                <button type="submit">Salvar</button>
+            <form action="{% url 'bot:login' %}" method="POST" name="form">{% csrf_token %}
+                <label for="user" >Nome de Usuario</label>
+                <input type="text" name="user" placeholder="User">
+                <label for="password">Senha</label>
+                <input type="password" name="password" placeholder="*******">
+                <button type="submit">Entrar</button>
             </form>
         </div>
     </div>
+    
     
 </body>
 </html>
